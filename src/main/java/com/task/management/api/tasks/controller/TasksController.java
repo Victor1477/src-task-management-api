@@ -1,0 +1,55 @@
+package com.task.management.api.tasks.controller;
+
+import com.task.management.api.tasks.dto.TaskDto;
+import com.task.management.api.tasks.entity.TaskEntity;
+import com.task.management.api.tasks.service.TasksService;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+
+@RestController()
+@RequestMapping("/api/tasks")
+public class TasksController {
+    @Resource()
+    private TasksService service;
+
+    @Setter
+    @Getter
+    public class ErrorHandler {
+        String message;
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<TaskEntity>> getAllTasks() {
+        return ResponseEntity.ok(this.service.getAllTasks());
+    }
+
+    @PostMapping()
+    public ResponseEntity<TaskEntity> saveTask(@RequestBody TaskDto taskDto) {
+        return ResponseEntity.ok(this.service.saveTask(taskDto));
+    }
+
+    @PutMapping()
+    public ResponseEntity updateTask(@RequestBody TaskDto taskDto) {
+        if (taskDto.getId() == 0) {
+            ErrorHandler errorHandler = new ErrorHandler();
+            errorHandler.setMessage("Update a task requires the Id");
+            return ResponseEntity.badRequest().body(errorHandler);
+        }
+        return ResponseEntity.ok(this.service.updateTask(taskDto));
+    }
+
+    @DeleteMapping()
+    public ResponseEntity deleteTask(@RequestHeader("id") Long id) {
+        TaskEntity task = this.service.deleteTask(id);
+        return ResponseEntity.ok("Sucessfully deleted: " + task.getCode());
+    }
+}
