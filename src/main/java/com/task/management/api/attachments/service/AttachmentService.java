@@ -2,10 +2,10 @@ package com.task.management.api.attachments.service;
 
 import com.task.management.api.attachments.entity.AttachmentEntity;
 import com.task.management.api.attachments.repository.AttachmentRepository;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.List;
 

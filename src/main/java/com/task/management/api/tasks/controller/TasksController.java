@@ -3,22 +3,18 @@ package com.task.management.api.tasks.controller;
 import com.task.management.api.tasks.dto.TaskDto;
 import com.task.management.api.tasks.entity.TaskEntity;
 import com.task.management.api.tasks.service.TasksService;
-
+import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.Setter;
-
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
-
 
 @RestController()
 @RequestMapping("/api/tasks")
 public class TasksController {
-    @Resource()
+    @Resource
     private TasksService service;
 
     @Setter

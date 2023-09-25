@@ -3,18 +3,15 @@ package com.task.management.api.tasks.service;
 import com.task.management.api.tasks.dto.TaskDto;
 import com.task.management.api.tasks.entity.TaskEntity;
 import com.task.management.api.tasks.repository.TasksRepository;
-
-
+import jakarta.annotation.Resource;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import javax.transaction.Transactional;
 import java.util.List;
-
 
 @Service()
 public class TasksService {
-    @Resource()
+    @Resource
     private TasksRepository repository;
 
     public List<TaskEntity> getAllTasks() {

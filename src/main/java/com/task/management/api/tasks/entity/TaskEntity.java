@@ -3,16 +3,15 @@ package com.task.management.api.tasks.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.task.management.api.attachments.entity.AttachmentEntity;
 import com.task.management.api.tasks.dto.TaskDto;
-
 import lombok.Getter;
 import lombok.Setter;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 
-@Entity()
+@Entity
 @Table(name = "tasks")
 @Setter
 @Getter
