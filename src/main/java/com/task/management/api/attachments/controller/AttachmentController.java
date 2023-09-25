@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/tasks/attachments")
+@RequestMapping("/tasks/attachments")
 public class AttachmentController {
     @Resource
     private AttachmentService service;
@@ -35,7 +35,7 @@ public class AttachmentController {
         }
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<AttachmentEntity>> getAllByTaskId(@RequestHeader("taskId") Long id) {
         return ResponseEntity.ok().body(this.service.getAllByTaskId(id));
     }

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
-@RequestMapping("/api/tasks")
+@RestController
+@RequestMapping("/tasks")
 public class TasksController {
     @Resource
     private TasksService service;
@@ -23,17 +23,17 @@ public class TasksController {
         String message;
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<TaskEntity>> getAllTasks() {
         return ResponseEntity.ok(this.service.getAllTasks());
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<TaskEntity> saveTask(@RequestBody TaskDto taskDto) {
         return ResponseEntity.ok(this.service.saveTask(taskDto));
     }
 
-    @PutMapping()
+    @PutMapping
     public ResponseEntity updateTask(@RequestBody TaskDto taskDto) {
         if (taskDto.getId() == 0) {
             ErrorHandler errorHandler = new ErrorHandler();
@@ -43,7 +43,7 @@ public class TasksController {
         return ResponseEntity.ok(this.service.updateTask(taskDto));
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public ResponseEntity deleteTask(@RequestHeader("id") Long id) {
         TaskEntity task = this.service.deleteTask(id);
         return ResponseEntity.ok("Sucessfully deleted: " + task.getCode());
