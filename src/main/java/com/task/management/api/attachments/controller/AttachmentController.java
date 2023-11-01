@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tasks/attachments")
+@RequestMapping("/api/tasks/attachments")
 public class AttachmentController {
     @Resource
     private AttachmentService service;
