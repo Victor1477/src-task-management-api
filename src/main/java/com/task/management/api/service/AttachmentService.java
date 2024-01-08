@@ -1,7 +1,7 @@
-package com.task.management.api.attachments.service;
+package com.task.management.api.service;
 
-import com.task.management.api.attachments.entity.AttachmentEntity;
-import com.task.management.api.attachments.repository.AttachmentRepository;
+import com.task.management.api.entity.AttachmentEntity;
+import com.task.management.api.repository.AttachmentRepository;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class AttachmentService {
+
     @Resource
     private AttachmentRepository repository;
 

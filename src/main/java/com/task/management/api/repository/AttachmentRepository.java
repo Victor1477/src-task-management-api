@@ -1,6 +1,6 @@
-package com.task.management.api.attachments.repository;
+package com.task.management.api.repository;
 
-import com.task.management.api.attachments.entity.AttachmentEntity;
+import com.task.management.api.entity.AttachmentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

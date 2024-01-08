@@ -1,8 +1,8 @@
-package com.task.management.api.tasks.service;
+package com.task.management.api.service;
 
-import com.task.management.api.tasks.dto.TaskDto;
-import com.task.management.api.tasks.entity.TaskEntity;
-import com.task.management.api.tasks.repository.TasksRepository;
+import com.task.management.api.dto.TaskDto;
+import com.task.management.api.entity.TaskEntity;
+import com.task.management.api.repository.TasksRepository;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

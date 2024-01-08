@@ -1,7 +1,6 @@
-package com.task.management.api.attachments.entity;
+package com.task.management.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.task.management.api.tasks.entity.TaskEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,18 +13,23 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class AttachmentEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
+
     @Column
     public String fileName;
+
     @Column
     @JsonIgnore
     public String contentType;
+
     @Lob
     @Column
     @JsonIgnore
     public byte[] fileData;
+
     @ManyToOne()
     @JsonIgnore
     @JoinColumn(name = "task_id")
@@ -35,11 +39,8 @@ public class AttachmentEntity {
         this.fileName = fileName;
         this.contentType = contentType;
         this.fileData = fileData;
-        if (this.task != null) {
-            this.task.id = taskId;
-        } else {
+        if (this.task == null)
             this.task = new TaskEntity();
-            this.task.id = taskId;
-        }
+        this.task.id = taskId;
     }
 }

@@ -1,4 +1,4 @@
-package com.task.management.api.tasks.dto;
+package com.task.management.api.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,7 @@
-package com.task.management.api.tasks.entity;
+package com.task.management.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.task.management.api.attachments.entity.AttachmentEntity;
-import com.task.management.api.tasks.dto.TaskDto;
+import com.task.management.api.dto.TaskDto;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.*;

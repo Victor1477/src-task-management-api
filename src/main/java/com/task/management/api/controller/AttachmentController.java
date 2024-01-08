@@ -1,7 +1,7 @@
-package com.task.management.api.attachments.controller;
+package com.task.management.api.controller;
 
-import com.task.management.api.attachments.entity.AttachmentEntity;
-import com.task.management.api.attachments.service.AttachmentService;
+import com.task.management.api.entity.AttachmentEntity;
+import com.task.management.api.service.AttachmentService;
 import jakarta.annotation.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/tasks/attachments")
 public class AttachmentController {
+    
     @Resource
     private AttachmentService service;
 

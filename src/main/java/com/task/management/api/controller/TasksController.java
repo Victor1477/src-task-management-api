@@ -1,8 +1,8 @@
-package com.task.management.api.tasks.controller;
+package com.task.management.api.controller;
 
-import com.task.management.api.tasks.dto.TaskDto;
-import com.task.management.api.tasks.entity.TaskEntity;
-import com.task.management.api.tasks.service.TasksService;
+import com.task.management.api.dto.TaskDto;
+import com.task.management.api.entity.TaskEntity;
+import com.task.management.api.service.TasksService;
 import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.Setter;
