@@ -43,7 +43,11 @@ public class TaskEntity {
         this.setCode(taskDto.getCode());
         this.setDescription(taskDto.getDescription());
         this.setNotes(taskDto.getNotes());
-        this.setPendencies(taskDto.getPendencies());
+        if (taskDto.getIsActive()) {
+            this.setPendencies(taskDto.getPendencies());
+        } else {
+            this.setPendencies(null);
+        }
         this.setFeatureFlagName(taskDto.getFeatureFlagName());
         this.setCreatedDate(LocalDateTime.now());
         this.setIsActive(taskDto.getIsActive());
@@ -53,7 +57,11 @@ public class TaskEntity {
         this.setCode(taskDto.getCode());
         this.setDescription(taskDto.getDescription());
         this.setNotes(taskDto.getNotes());
-        this.setPendencies(taskDto.getPendencies());
+        if (taskDto.getIsActive()) {
+            this.setPendencies(taskDto.getPendencies());
+        } else {
+            this.setPendencies(null);
+        }
         this.setFeatureFlagName(taskDto.getFeatureFlagName());
         this.setIsActive(taskDto.getIsActive());
 
