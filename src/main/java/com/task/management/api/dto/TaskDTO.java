@@ -10,6 +10,7 @@ public class TaskDTO {
     public String code;
     public String description;
     public String notes;
+    public String pendencies;
     public String featureFlagName;
     public boolean isActive;
 

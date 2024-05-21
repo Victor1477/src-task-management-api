@@ -27,6 +27,8 @@ public class TaskEntity {
     @Column
     public String notes;
     @Column
+    public String pendencies;
+    @Column
     public boolean isActive;
     @Column
     public String featureFlagName;
@@ -41,6 +43,7 @@ public class TaskEntity {
         this.setCode(taskDto.getCode());
         this.setDescription(taskDto.getDescription());
         this.setNotes(taskDto.getNotes());
+        this.setPendencies(taskDto.getPendencies());
         this.setFeatureFlagName(taskDto.getFeatureFlagName());
         this.setCreatedDate(LocalDateTime.now());
         this.setIsActive(taskDto.getIsActive());
@@ -50,6 +53,7 @@ public class TaskEntity {
         this.setCode(taskDto.getCode());
         this.setDescription(taskDto.getDescription());
         this.setNotes(taskDto.getNotes());
+        this.setPendencies(taskDto.getPendencies());
         this.setFeatureFlagName(taskDto.getFeatureFlagName());
         this.setIsActive(taskDto.getIsActive());
 
