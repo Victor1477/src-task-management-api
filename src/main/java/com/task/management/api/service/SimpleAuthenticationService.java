@@ -2,6 +2,7 @@ package com.task.management.api.service;
 
 import com.task.management.api.dto.TokenResponseDTO;
 import com.task.management.api.entity.User;
+import com.task.management.api.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,8 @@ public class SimpleAuthenticationService {
             int random2 = (int) Math.floor(Math.random() * 100);
             this.currentToken = "Bearer " + random + System.currentTimeMillis() + random2;
             return new TokenResponseDTO(this.currentToken);
+        } else {
+            System.out.println("Tried to authenticate " + user.getName() + " " + DateUtils.getCurrentDateTime());
         }
         return null;
     }
