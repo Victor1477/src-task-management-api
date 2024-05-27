@@ -20,22 +20,22 @@ public class AttachmentService {
 
     public void upload(MultipartFile file, Long taskId) throws IOException {
         String fileName = file.getOriginalFilename().split("\\.")[0];
-        System.out.println("Uploading Attachment: " + fileName + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Uploading Attachment: " + fileName);
         this.repository.save(new AttachmentEntity(fileName, file.getContentType(), file.getBytes(), taskId));
     }
 
     public AttachmentEntity download(Long id) {
-        System.out.println("Downloading task with id: " + id + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Downloading task with id: " + id);
         return this.repository.findById(id).get();
     }
 
     public List<AttachmentEntity> getAllByTaskId(Long id) {
-        System.out.println("Getting all attachments for task with id: " + id + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Getting all attachments for task with id: " + id);
         return this.repository.findAllByTaskId(id).get();
     }
 
     public void deleteAttachment(Long id) {
-        System.out.println("Deleting Attachment with id: " + id + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Deleting Attachment with id: " + id);
         this.repository.deleteById(id);
     }
 }

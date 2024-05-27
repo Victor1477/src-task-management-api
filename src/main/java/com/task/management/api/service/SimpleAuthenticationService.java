@@ -21,13 +21,12 @@ public class SimpleAuthenticationService {
     }
 
     public TokenResponseDTO authenticate(User user) {
+        System.out.println(DateUtils.getCurrentDateTime() + " Trying to authenticate: " + user.getName());
         if (user.getName().equals(this.name) && user.getPassword().equals(this.password)) {
             int random = (int) Math.round(Math.random() * 1000);
             int random2 = (int) Math.floor(Math.random() * 100);
             this.currentToken = "Bearer " + random + System.currentTimeMillis() + random2;
             return new TokenResponseDTO(this.currentToken);
-        } else {
-            System.out.println("Tried to authenticate " + user.getName() + " " + DateUtils.getCurrentDateTime());
         }
         return null;
     }

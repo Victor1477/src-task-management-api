@@ -18,7 +18,7 @@ public class TasksService {
     private TasksRepository repository;
 
     public List<TaskEntity> getAllTasks() {
-        System.out.println("Getting all tasks " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Getting all tasks");
         List<TaskEntity> resultList = this.repository.findAll();
         resultList.sort((t1, t2) -> -t1.getCreatedDate().compareTo(t2.getCreatedDate()));
         return resultList;
@@ -26,20 +26,20 @@ public class TasksService {
 
     @Transactional
     public TaskEntity saveTask(TaskDTO taskDto) {
-        System.out.println("Adding task code: " + taskDto.getCode() + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Adding task code: " + taskDto.getCode());
         return this.repository.save(new TaskEntity(taskDto));
     }
 
     @Transactional
     public TaskEntity updateTask(TaskDTO taskDto) {
-        System.out.println("Updating task code: " + taskDto.getCode() + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Updating task code: " + taskDto.getCode());
         TaskEntity task = this.repository.findById(taskDto.id).get();
         return task.update(taskDto);
     }
 
     @Transactional
     public TaskEntity deleteTask(Long id) {
-        System.out.println("Deleting task id: " + id + " " + DateUtils.getCurrentDateTime());
+        System.out.println(DateUtils.getCurrentDateTime() + " Deleting task id: " + id);
         TaskEntity task = this.repository.findById(id).get();
         this.repository.delete(task);
         return task;
