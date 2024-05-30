@@ -15,11 +15,13 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (request.getRequestURI().equals("/api/authenticate") || request.getMethod().equals("OPTIONS")
-                || request.getRequestURI().contains("/api/tasks/attachments/")) {
+        if (request.getRequestURI().equals("/api/authenticate") || request.getMethod().equals("OPTIONS")) {
             return true;
         }
         boolean authorized = simpleAuthenticationService.authorize(request.getHeader("Authorization"));
+        if (request.getRequestURI().contains("/api/tasks/attachments/")) {
+            authorized = simpleAuthenticationService.authorize(request.getParameter("authorization"));
+        }
         if (!authorized)
             response.sendError(401);
 
