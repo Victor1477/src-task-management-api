@@ -19,7 +19,7 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
             return true;
         }
         boolean authorized = simpleAuthenticationService.authorize(request.getHeader("Authorization"));
-        if (request.getRequestURI().contains("/api/tasks/attachments/")) {
+        if (request.getRequestURI().contains("/api/tasks/attachments/") && !authorized) {
             authorized = simpleAuthenticationService.authorize(request.getParameter("authorization"));
         }
         if (!authorized)
