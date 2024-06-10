@@ -1,6 +1,7 @@
 package com.task.management.api.interceptors;
 
 import com.task.management.api.service.SimpleAuthenticationService;
+import com.task.management.api.utils.DateUtils;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println(DateUtils.getCurrentDateTime() + " Request to: " + request.getRequestURI().toString());
         if (request.getRequestURI().equals("/api/authenticate") || request.getMethod().equals("OPTIONS")) {
             return true;
         }
